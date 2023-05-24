@@ -1,6 +1,7 @@
 package org.java.bestoftheyear.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.java.bestoftheyear.Movie;
@@ -62,14 +63,20 @@ public class MyController {
 	public String getMovies(Model model) {
 		
 		List<Movie> lm = getBestMovies();
-		String res = "I migliori film trovati sono:";
-		int iter = 1;
+		Iterator<Movie> it = lm.iterator();
+		String res = "I migliori film trovati sono: ";
 		for(Movie m : lm) {
-				res += " " + m.getName() + ",";
+			if(it.hasNext()) {
+				
+				res += m.getName() + ", ";
+			} else {
+				
+				res += m.getName() + ".";
+			} 
 		}
 		
 		model.addAttribute("listOfMovies", res);
 		
-		return "index";
+		return "bestMovies";
 	}
 }
