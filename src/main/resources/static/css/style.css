@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.pageTitle {
+	width: 25vw;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: 700;
+	border: 1px solid black;
+	display: inline-block;
+}
+
+.topMenu {
+	width: 74vw;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: 700;
+	border: 1px solid black;
+	display: inline-block;
+}
+
+figure {
+	width: 300px;
+	height: 200px;
+	margin: 0 auto;
+}

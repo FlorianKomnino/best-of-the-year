@@ -41,10 +41,10 @@ public class MyController {
 		return songs;
 	}
 	
-	@GetMapping("/bestOfTheYear")
-	public String bestOfTheYear(Model model,
-			@RequestParam(name = "name") String name) {
+	@GetMapping("/")
+	public String bestOfTheYear(Model model) {
 		
+		String name = "Florian";
 		model.addAttribute("name", name);
 		
 		return "index";
@@ -56,14 +56,14 @@ public class MyController {
 		List<Movie> lm = getBestMovies();
 		Iterator<Movie> it = lm.iterator();
 		String res = "I migliori film trovati sono: ";
-		for(Movie m : lm) {
-			if(it.hasNext()) {
+		while(it.hasNext()) {
 				
-				res += m.getName() + ", ";
-			} else {
-				
-				res += m.getName() + ".";
-			} 
+				res += it.next().getName();
+			
+				if(it.hasNext()) {
+					res += ", ";
+				}
+ 
 		}
 		
 		model.addAttribute("listOfMovies", res);
