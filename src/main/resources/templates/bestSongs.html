@@ -5,6 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 th:text="${listOfSongs}"></h1>
+	<ul>
+		<li th:each="song : ${listOfSongs}">[[ ${song.id} ]] - [[ ${song.name} ]]</li>
+	</ul>
 </body>
 </html>

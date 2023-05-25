@@ -5,6 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 th:text="${listOfMovies}"></h1>
+	<ul>
+		<li th:each="movie : ${listOfMovies}">[[ ${movie.id} ]] - [[ ${movie.name} ]]</li>
+	</ul>
 </body>
 </html>

@@ -54,24 +54,24 @@ public class MyController {
 	public String getMovies(Model model) {
 		
 		List<Movie> lm = getBestMovies();
-		Iterator<Movie> it = lm.iterator();
-		String res = "I migliori film trovati sono: ";
-		while(it.hasNext()) {
-				
-				res += it.next().getName();
-			
-				if(it.hasNext()) {
-					res += ", ";
-				}
- 
-		}
+//		Iterator<Movie> it = lm.iterator();
+//		String res = "I migliori film trovati sono: ";
+//		while(it.hasNext()) {
+//				
+//				res += it.next().getName();
+//			
+//				if(it.hasNext()) {
+//					res += ", ";
+//				}
+// 
+//		}
+
+		model.addAttribute("listOfMovies", lm);
 		
-		model.addAttribute("listOfMovies", res);
-		
-		return "bestMovies";
+		return "moviesList";
 	}
 	
-	@GetMapping("/movie/{id}")
+	@GetMapping("/movies/{id}")
 	public String getMovie(Model model,
 			@PathVariable("id") int id) {
 		String titleToPass = "";
@@ -88,7 +88,7 @@ public class MyController {
 		return "movie";
 	}
 	
-	@GetMapping("/song/{id}")
+	@GetMapping("/songs/{id}")
 	public String getSong(Model model,
 			@PathVariable("id") int id) {
 		String titleToPass = "";
@@ -109,21 +109,21 @@ public class MyController {
 	public String getSongs(Model model) {
 		
 		List<Song> ls = getBestSongs();
-		Iterator<Song> it = ls.iterator();
-		String res = "Le migliori canzoni trovate sono: ";
-		for(Song s : ls) {
-			if(it.hasNext()) {
-				
-				res += s.getName() + ", ";
-			} else {
-				
-				res += s.getName() + ".";
-			} 
-		}
+//		Iterator<Song> it = ls.iterator();
+//		String res = "Le migliori canzoni trovate sono: ";
+//		for(Song s : ls) {
+//			if(it.hasNext()) {
+//				
+//				res += s.getName() + ", ";
+//			} else {
+//				
+//				res += s.getName() + ".";
+//			} 
+//		}
 		
-		model.addAttribute("listOfSongs", res);
+		model.addAttribute("listOfSongs", ls);
 		
-		return "bestSongs";
+		return "songsList";
 	}
 	
 }
